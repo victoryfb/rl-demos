@@ -1,17 +1,16 @@
 import numpy as np
 import gym
 
-from DQN import Agent
+from DQN import DQNAgent
 from utils import plot_learning
-
 
 env = gym.make('LunarLander-v2')
 lr = 0.001
 n_games = 500
-agent = Agent(gamma=0.99, epsilon=1.0, lr=lr,
-              input_dims=env.observation_space.shape,
-              n_actions=env.action_space.n, mem_size=1000000, batch_size=64,
-              epsilon_end=0.01)
+agent = DQNAgent(gamma=0.99, epsilon=1.0, lr=lr,
+                 input_dims=env.observation_space.shape,
+                 n_actions=env.action_space.n, mem_size=1000000, batch_size=64,
+                 epsilon_end=0.01)
 scores = []
 eps_history = []
 
@@ -20,6 +19,7 @@ for i in range(n_games):
     score = 0
     observation = env.reset()
     while not done:
+        # env.render()
         action = agent.choose_action(observation)
         observation_, reward, done, _ = env.step(action)
         score += reward

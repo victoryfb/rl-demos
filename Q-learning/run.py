@@ -1,5 +1,5 @@
-from utils.maze_env import Maze
-from utils.rl_brain import QLearningTable
+from maze_env import Maze
+from rl_brain import QLearningTable
 
 
 class Run:
