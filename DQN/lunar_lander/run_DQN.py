@@ -1,7 +1,7 @@
 import numpy as np
 import gym
 
-from DQN import DQNAgent
+from DQN.DQN import DQNAgent
 from utils import plot_learning
 
 env = gym.make('LunarLander-v2')

@@ -1,7 +1,7 @@
 import numpy as np
 import gym
 
-from DQN import DDQNAgent
+from DQN.DQN import DDQNAgent
 from utils import plot_learning
 
 env = gym.make('LunarLander-v2')
@@ -20,7 +20,7 @@ for i in range(n_games):
     score = 0
     observation = env.reset()
     while not done:
-        env.render()
+        # env.render()
         action = agent.choose_action(observation)
         observation_, reward, done, _ = env.step(action)
         score += reward
